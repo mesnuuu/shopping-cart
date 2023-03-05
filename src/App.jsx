@@ -1,14 +1,30 @@
 import { useState } from 'react'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+
+import Cart from './components/Cart'
+import Home from './components/Home'
+import Navbar from './components/Navbar'
+
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
-    <div className="App">
 
-      <h1>Vite + React</h1>
+    <BrowserRouter>
 
-    </div>
+      <Navbar />
+
+      <div className="container">
+
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/cart" element={<Cart />} />
+        </Routes>
+
+      </div>
+      
+    </BrowserRouter>
   )
 }
 
