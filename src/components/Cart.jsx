@@ -1,10 +1,23 @@
 import React, { useState } from 'react'
 import productList from '../data/productList'
 import '../styles/cart.scss'
+import { useSelector, useDispatch } from 'react-redux'
+import cartSlice from '../data/cartSlice'
 
 const Cart = () => {
 
-  const [cartProductData, setCartProductData] = useState(productList.products)
+  // getting cart product ids from store
+  const { cartProductIds } = useSelector((state) => state.cart)
+
+  // filter cart products based on cart ids from store
+  const cartProductData = productList
+                            .products
+                            .filter((product) => cartProductIds.includes(product.id))
+
+  const { removeFromCart, clearAllItems } = cartSlice.actions
+  const dispatch = useDispatch()
+
+  // const [cartProductData, setCartProductData] = useState(productList.products)
 
   return (
 
