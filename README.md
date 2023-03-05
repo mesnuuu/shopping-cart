@@ -1,2 +1,2 @@
 # shopping-cart
- Redux Tool Kit
+ Learning Redux Tool Kit
