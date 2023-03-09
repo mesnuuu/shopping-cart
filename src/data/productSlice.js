@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 
-const fetchAllProducts = createAsyncThunk('fetch-all-products',
+export const fetchAllProducts = createAsyncThunk('fetch-all-products',
     async (apiURL) => {
         const response = await fetch(apiURL)
         return response.json()
@@ -33,3 +33,5 @@ const productSlice = createSlice({
     }
 
 })
+
+export default productSlice
